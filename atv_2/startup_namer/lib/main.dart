@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,26 +44,41 @@ class _RandomWordsState extends State<RandomWords> {
   Widget _buildSuggestions() {
     Widget _buildRow(WordPair pair) {
       final alreadySaved = _saved.contains(pair);
-      return ListTile(
-        title: Text(
-          pair.asPascalCase,
-          style: _biggerFont,
-        ),
-        trailing: Icon(
-          alreadySaved ? Icons.favorite : Icons.favorite_border,
-          color: alreadySaved ? Colors.red : null,
-        ),
-        onTap: () {
-          // NEW lines from here...
-          setState(() {
-            if (alreadySaved) {
-              _saved.remove(pair);
-            } else {
-              _saved.add(pair);
-            }
+      return Dismissible(
+          direction: DismissDirection.endToStart,
+          key: Key(pair.asPascalCase),
+          child: ListTile(
+            title: Text(
+              pair.asPascalCase,
+              style: _biggerFont,
+            ),
+            trailing: Icon(
+              alreadySaved ? Icons.favorite : Icons.favorite_border,
+              color: alreadySaved ? Colors.red : null,
+            ),
+            onTap: () {
+              setState(() {
+                if (alreadySaved) {
+                  _saved.remove(pair);
+                } else {
+                  _saved.add(pair);
+                }
+              });
+            },
+          ),
+          background: Container(
+              color: Colors.red,
+              child: Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: Icon(Icons.delete_forever))),
+          onDismissed: (direction) {
+            setState(() {
+              _suggestions.remove(pair);
+              if (alreadySaved) {
+                _saved.remove(pair);
+              }
+            });
           });
-        },
-      );
     }
 
     return ListView.builder(
