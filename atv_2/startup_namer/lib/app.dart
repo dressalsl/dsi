@@ -5,11 +5,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Startup Name Generator',
+      title: 'Possible Band Names',
       theme: ThemeData(
-        primaryColor: Colors.pink,
+        primaryColor: Colors.purple,
       ),
-      home: RandomWords(),
+      home: BandNames(title: 'Possible Band Names'),
     );
   }
 }

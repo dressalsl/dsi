@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "785239751257",
+    "project_id": "startup-namer-c2702",
+    "storage_bucket": "startup-namer-c2702.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785239751257:android:3cc645a216b8db2af80f48",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785239751257-gol9vuo25773dritsotmh7b7fasn19ip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuWp_kKzsLEkpD_vYtBtW11p39RlpFFfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785239751257-gol9vuo25773dritsotmh7b7fasn19ip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
